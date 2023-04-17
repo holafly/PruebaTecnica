@@ -1,40 +1,47 @@
 class AbstractPeople {
+  constructor(id, app) {
+    this.id = id;
+    this.app = app;
 
-    constructor(id) {
-        if (this.constructor == AbstractPeople) {
-            throw new Error("Abstract classes can't be instantiated.");
-        }
+    if (this.constructor == AbstractPeople) {
+      throw new Error("Abstract classes can't be instantiated.");
     }
+  }
 
-    async init(){
-        throw new Error('To be implemented');
-    }
+  getId() {
+    return this.id;
+  }
 
-    getId() {
-       return this.id;
-    }
+  getName() {
+    return this.name || this.whrascwo;
+  }
 
-    getName() {
-        return this.name;
-    }
+  getMass() {
+    return this.mass || this.scracc;
+  }
 
-    getMass() {
-        return this.mass;
-    }
+  getHeight() {
+    return this.height || this.acwoahrracao;
+  }
 
-    getHeight() {
-        return this.height;
-    }
+  getHomeworldName() {
+    return this.homeworldName || this.acooscwoohoorcanwa;
+  }
 
-    getHomeworldName() {
-        return this.homeworldName;
-    }
+  getHomeworlId() {
+    return this.homeworlId || this.acooscwoohoorcanwa;
+  }
 
-    getHomeworlId() {
-        return this.homeworlId;
-    }
-
-    getWeightOnPlanet(planetId){
-        throw new Error('To be implemented');
-    }
+  async getWeightOnPlanet(planetId) {
+    const planetObject = new this.app.planet.Planet(planetId, this.app);
+    await planetObject.init();
+    const gravity = planetObject.getGravity();
+    if (gravity === "unknown" || this.mass === "unknown")
+      return "Gravity or mass is unknown";
+    const gravityFormat = parseFloat(gravity.split(" ")[0]);
+    const weight = this.mass * gravityFormat;
+    return weight;
+  }
 }
+
+module.exports = AbstractPeople;

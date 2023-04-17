@@ -1,17 +1,34 @@
+const URL_SWAPI = process.env.URL_SWAPI;
 class Planet {
-    constructor(id){
-        throw new Error('To be implemented');
+  constructor(id, app) {
+    this.id = id;
+    this.app = app;
+  }
+
+  async init() {
+    let planet = await this.app.db.swPlanet.findOne({
+      where: { id: this.id },
+    });
+
+    if (planet === null) {
+      planet = await this.app.swapiFunctions.genericRequest(
+        `${URL_SWAPI}/planets/${this.id}`,
+        "GET",
+        null
+      );
     }
 
-    async init(){
-        throw new Error('To be implemented');
-    }
+    this.name = planet.name;
+    this.gravity = planet.gravity;
+  }
 
-    getName() {
-        return this.name;
-    }
+  getName() {
+    return this.name;
+  }
 
-    getGravity() {
-        return this.gravity;
-    }
+  getGravity() {
+    return this.gravity;
+  }
 }
+
+module.exports = Planet;
