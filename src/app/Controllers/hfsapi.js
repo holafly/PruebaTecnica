@@ -30,6 +30,4 @@ const getWeightOnPlanetRandomInformation = async (app, peopleId, planetId) => {
     return weightOnPlanetInfo;
 }
 
-
-
 module.exports = {getPeopleInformation, getPlanetInformation, getWeightOnPlanetRandomInformation};
