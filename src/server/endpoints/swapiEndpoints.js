@@ -17,10 +17,8 @@ const applySwapiEndpoints = (server, app) => {
     });
 
     server.get('/hfswapi/getPeople/:id', async (req, res) => {
-        console.log(req.params);
-        const people = await db.swPeople.findAll({raw: true});
-        console.log(people);
-        res.send('People id: ' + req.params.id);
+        const people = await db.swPeople.findOne({where: {id: req.params.id}});
+        res.json(people);
     });
 
     server.get('/hfswapi/getPlanet/:id', async (req, res) => {
