@@ -1,5 +1,3 @@
-const db = require('../../app/db')
-
 
 const _isWookieeFormat = (req) => {
     if(req.query.format && req.query.format == 'wookiee'){
@@ -17,8 +15,13 @@ const applySwapiEndpoints = (server, app) => {
     });
 
     server.get('/hfswapi/getPeople/:id', async (req, res) => {
-        const people = await db.swPeople.findOne({where: {id: req.params.id}});
-        res.json(people);
+        const people = await app.db.swPeople.findOne({where: {id: req.params.id}});
+        if (people != null) {
+            res.json(people);
+        } else {
+            const peopleApi = await app.swapiFunctions.genericRequest('https://swapi.dev/api/people/' + req.params.id , 'GET', null, true);
+            res.json(peopleApi);
+        }
     });
 
     server.get('/hfswapi/getPlanet/:id', async (req, res) => {
