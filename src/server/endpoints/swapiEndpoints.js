@@ -1,4 +1,6 @@
 
+const hfsapi = require('../../app/Controllers/hfsapi')
+
 const _isWookieeFormat = (req) => {
     if(req.query.format && req.query.format == 'wookiee'){
         return true;
@@ -15,23 +17,13 @@ const applySwapiEndpoints = (server, app) => {
     });
 
     server.get('/hfswapi/getPeople/:id', async (req, res) => {
-        const people = await app.db.swPeople.findOne({where: {id: req.params.id}});
-        if (people != null) {
-            res.json(people);
-        } else {
-            const peopleApi = await app.swapiFunctions.genericRequest('https://swapi.dev/api/people/' + req.params.id , 'GET', null, true);
-            res.json(peopleApi);
-        }
+        const peopleInfo = await hfsapi.getPeopleInformation(app, req.params.id);
+        res.json(peopleInfo);
     });
 
     server.get('/hfswapi/getPlanet/:id', async (req, res) => {
-        const planet = await app.db.swPlanet.findOne({where: {id: req.params.id}});
-        if (planet != null) {
-            res.json(planet);
-        } else {
-            const planetApi = await app.swapiFunctions.genericRequest('https://swapi.dev/api/planets/' + req.params.id , 'GET', null, true);
-            res.json(planetApi);
-        }
+        const planetInfo = await hfsapi.getPlanetInformation(app, req.params.id);
+        res.json(planetInfo);
     });
 
     server.get('/hfswapi/getWeightOnPlanetRandom', async (req, res) => {
