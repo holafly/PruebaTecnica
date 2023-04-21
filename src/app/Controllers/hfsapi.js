@@ -18,4 +18,18 @@ const getPlanetInformation = async (app, id) => {
     }
 }
 
-module.exports = {getPeopleInformation, getPlanetInformation};
+const getWeightOnPlanetRandomInformation = async (app, peopleId, planetId) => {
+    people = await getPeopleInformation(app, peopleId);
+    planet = await getPlanetInformation(app, planetId);
+    const gravity = Number(String(planet.gravity).replace(/[^0-9\.]+/g,""));
+    const weightOnPlanetInfo = {
+        people_name: people.name,
+        planet_name: planet.name,
+        weight: app.swapiFunctions.getWeightOnPlanet(people.mass,  gravity)
+    }
+    return weightOnPlanetInfo;
+}
+
+
+
+module.exports = {getPeopleInformation, getPlanetInformation, getWeightOnPlanetRandomInformation};
