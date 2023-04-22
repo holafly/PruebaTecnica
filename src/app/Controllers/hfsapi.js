@@ -22,12 +22,20 @@ const getWeightOnPlanetRandomInformation = async (app, peopleId, planetId) => {
     people = await getPeopleInformation(app, peopleId);
     planet = await getPlanetInformation(app, planetId);
     const gravity = Number(String(planet.gravity).replace(/[^0-9\.]+/g,""));
-    const weightOnPlanetInfo = {
-        people_name: people.name,
-        planet_name: planet.name,
-        weight: app.swapiFunctions.getWeightOnPlanet(people.mass,  gravity)
+    const homeworld  = Number(String(people.homeworld).replace(/[^0-9\.]+/g,""));
+    if (homeworld != planetId){
+        const weightOnPlanetInfo = {
+            people_name: people.name,
+            planet_name: planet.name,
+            weight: app.swapiFunctions.getWeightOnPlanet(people.mass,  gravity)
+        }
+        return weightOnPlanetInfo;
+    } else {
+        const weightOnPlanetInfo = {
+            error: "The people lives in the same country",
+        }
+        return weightOnPlanetInfo;
     }
-    return weightOnPlanetInfo;
 }
 
 module.exports = {getPeopleInformation, getPlanetInformation, getWeightOnPlanetRandomInformation};
