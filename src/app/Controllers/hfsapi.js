@@ -32,7 +32,7 @@ const getWeightOnPlanetRandomInformation = async (app, peopleId, planetId) => {
         return weightOnPlanetInfo;
     } else {
         const weightOnPlanetInfo = {
-            error: "The people lives in the same country",
+            error: "The people lives in the same planet",
         }
         return weightOnPlanetInfo;
     }
