@@ -1,7 +1,7 @@
 const fetch = require('node-fetch');
 
 const getWeightOnPlanet = (mass, gravity) => {
-  return mass * gravity;
+  return parseFloat(mass * gravity).toFixed(2);
 };
 
 const genericRequest = async (url, method, body, logging = false) => {

@@ -1,0 +1,6 @@
+{
+  "watch": ["src/**/*.js", ".env"],
+  "ext": "js,.env",
+  "verbose": true,
+  "exec": "node --inspect --trace-warnings --trace-deprecation src/index.js"
+}

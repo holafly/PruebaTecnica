@@ -12,7 +12,7 @@
   "scripts": {
     "prettier": "npx prettier --write \"src/**/*.js\"",
     "start": "node index.js",
-    "dev": "nodemon --watch ./src index.js"
+    "dev": "nodemon --config"
   },
   "dependencies": {
     "body-parser": "1.20.0",
