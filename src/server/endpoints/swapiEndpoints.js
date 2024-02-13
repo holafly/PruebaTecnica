@@ -14,17 +14,27 @@ const applySwapiEndpoints = (server, app) => {
       const data = await app.swapiFunctions.genericRequest(
         'https://swapi.dev/api/',
         'GET',
-        null,
-        true,
       );
       res.send(data);
     } catch (err) {
-      res.status(500).json(err);
+      res.sendStatus(500, err);
     }
   });
 
   server.get('/hfswapi/getPeople/:id', async (req, res) => {
-    res.sendStatus(501);
+    try {
+      const person = await peopleFactory(req.params.id, app, req.query.lang);
+      res.send({
+        name: person.getName(),
+        height: person.getHeight(),
+        mass: person.getMass(),
+        homeworldName: person.getHomeworldName(),
+        homeworldId: person.getHomeworlId(),
+      });
+    } catch (err) {
+      console.log(err);
+      res.status(500).send({ message: `${err}` });
+    }
   });
 
   server.get('/hfswapi/getPlanet/:id', async (req, res) => {
@@ -36,7 +46,7 @@ const applySwapiEndpoints = (server, app) => {
         gravity: planet.getGravity(),
       });
     } catch (err) {
-      res.status(500).json(err);
+      res.status(500).send({ message: `${err}` });
     }
   });
 
@@ -64,13 +74,17 @@ const applySwapiEndpoints = (server, app) => {
         });
       }
     } catch (err) {
-      res.sendStatus(500, err);
+      res.status(500).send({ message: `${err}` });
     }
   });
 
   server.get('/hfswapi/getLogs', async (req, res) => {
-    const data = await app.db.logging.findAll();
-    res.send(data);
+    try {
+      const data = await app.db.logging.findAll();
+      res.send(data);
+    } catch (err) {
+      res.status(500).send({ message: `${err}` });
+    }
   });
 };
 

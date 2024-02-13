@@ -10,7 +10,6 @@ class AbstractPeople {
   }
 
   async init() {
-    let crearRegistro = false;
     let people = await this.app.db.swPeople.findOne({
       where: { id: this.id },
     });
@@ -29,6 +28,7 @@ class AbstractPeople {
         this.homeworld_name = planet.name;
         this.mass =
           parseFloat(people.mass.replace(/\D+/g, ''))?.toFixed(2) || 0.0;
+        this.savePeople();
       }
     } else {
       this.name = people.name;
@@ -36,15 +36,18 @@ class AbstractPeople {
       this.mass = people.mass;
       this.homeworld_id = people.homeworld_id;
       this.homeworld_name = people.homeworld_name;
-      await this.app.db.swPeople.create({
-        id: this.id,
-        name: this.name,
-        height: this.height,
-        mass: this.mass,
-        homeworld_id: this.homeworld_id,
-        homeworld_name: this.homeworld_name,
-      });
     }
+  }
+
+  async savePeople() {
+    await this.app.db.swPeople.create({
+      id: this.id,
+      name: this.name,
+      height: this.height,
+      mass: this.mass,
+      homeworld_id: this.homeworld_id,
+      homeworld_name: this.homeworld_name,
+    });
   }
 
   getId() {
