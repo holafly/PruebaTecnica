@@ -1,0 +1,167 @@
+{
+	"info": {
+		"_postman_id": "d726ab90-8415-482c-b386-d12c1038676e",
+		"name": "com.holafly",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31489952"
+	},
+	"item": [
+		{
+			"name": "hfswapi/test",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:4567/hfswapi/test",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "4567",
+					"path": [
+						"hfswapi",
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "hfswapi/getWeightOnPlanetRandom",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:4567/hfswapi/getWeightOnPlanetRandom?idPeople=1&idPlanet=1",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "4567",
+					"path": [
+						"hfswapi",
+						"getWeightOnPlanetRandom"
+					],
+					"query": [
+						{
+							"key": "idPeople",
+							"value": "1"
+						},
+						{
+							"key": "idPlanet",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/hfswapi/getPeople/:id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:4567/hfswapi/getPeople/1",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "4567",
+					"path": [
+						"hfswapi",
+						"getPeople",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/hfswapi/getPeople/:id?format=wookiee",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:4567/hfswapi/getPeople/1?format=wookiee",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "4567",
+					"path": [
+						"hfswapi",
+						"getPeople",
+						"1"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "wookiee"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/hfswapi/getPlanet/:id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:4567/hfswapi/getPlanet/1",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "4567",
+					"path": [
+						"hfswapi",
+						"getPlanet",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/hfswapi/getLogs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:4567/hfswapi/getLogs",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "4567",
+					"path": [
+						"hfswapi",
+						"getLogs"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
