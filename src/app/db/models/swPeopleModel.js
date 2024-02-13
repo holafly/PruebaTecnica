@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
       mass: DataTypes.INTEGER,
       height: DataTypes.INTEGER,
       homeworld_name: DataTypes.STRING,
-      homeworld_id: DataTypes.STRING,
+      homeworld_id: DataTypes.INTEGER,
     },
     {
       paranoid: true,

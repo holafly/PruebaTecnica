@@ -9,8 +9,7 @@ class Planet {
     let planet = await this.app.db.swPlanet.findOne({
       where: { id: this.id },
     });
-
-    if (planet === null) {
+    if (!planet) {
       planet = await this.app.swapiFunctions.genericRequest(
         `https://swapi.dev/api/planets/${this.id}`,
         'GET',
@@ -37,4 +36,4 @@ class Planet {
   }
 }
 
-module.exports = Planet;
+exports.Planet = Planet;
