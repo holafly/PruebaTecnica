@@ -1,20 +1,30 @@
 {
-  "dependencies": {
-    "body-parser": "^1.20.0",
-    "dotenv": "^16.0.1",
-    "express": "^4.18.1",
-    "node-fetch": "^2.6.7",
-    "nodemon": "^2.0.19",
-    "sequelize": "^6.21.2",
-    "sequelize-cli": "^6.4.1",
-    "sqlite3": "^5.0.8"
-  },
   "name": "PruebaTecnicaHolafly",
   "version": "1.0.0",
   "description": "Prueba Técnica de Holafly",
+  "author": "Iván Roldán Núñez · 644881969 · madebyivan@me.com",
   "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "engines": {
+    "node": "15.14.0"
+  },
   "scripts": {
+    "prettier": "npx prettier --write \"src/**/*.js\"",
     "start": "node index.js",
     "dev": "nodemon --watch ./src index.js"
+  },
+  "dependencies": {
+    "body-parser": "1.20.0",
+    "dotenv": "16.0.1",
+    "express": "4.18.1",
+    "node-fetch": "2.6.7",
+    "sequelize": "6.21.2",
+    "sequelize-cli": "6.4.1",
+    "sqlite3": "5.0.8"
+  },
+  "devDependencies": {
+    "nodemon": "2.0.19",
+    "prettier": "3.2.5"
   }
 }

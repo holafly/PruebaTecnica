@@ -1,3 +1,3 @@
 const Planet = require('./Planet');
 
-module.exports = { Planet }
+module.exports = { Planet };
