@@ -35,7 +35,7 @@ El presente código despliega un servidor node.js/express sobre el que se busca 
 > - homeworldName: nombre del planeta natal del personaje correspondiente al ID dado.
 > - homeworldId: Identificador del planeta natal del personaje correspondiente al ID dado.
 >
-> En caso de que dichos datos no se encuentren disponibles en la BD, se habrá de consultar en la SWAPI (https://swapi.dev/) sobre el endpoint adecuado
+> En caso de que dichos datos no se encuentren disponibles en la BD, se habrá de consultar en la SWAPI (https://swapi.py4e.com/) sobre el endpoint adecuado
 
 
 #### /hfswapi/getPlanet/:id
@@ -44,7 +44,7 @@ El presente código despliega un servidor node.js/express sobre el que se busca 
 > - name: Nombre del planeta correspondiente al ID dado
 > - gravity: factor de la gravedad del planeta correspondiente al ID dado en comparación con la considerada standard
 >
-> En caso de que dichos datos no se encuentren disponibles en la BD, se habrá de consultar en la SWAPI (https://swapi.dev/) sobre el endpoint adecuado
+> En caso de que dichos datos no se encuentren disponibles en la BD, se habrá de consultar en la SWAPI (https://swapi.py4e.com/) sobre el endpoint adecuado
 
 
 #### /hfswapi/getWeightOnPlanetRandom
@@ -53,7 +53,7 @@ El presente código despliega un servidor node.js/express sobre el que se busca 
 > 
 > $Peso_{Personaje} = Gravedad_{Planeta} · Masa_{Personaje}$
 > 
-> En caso de que los datos requeridos no se encuentren disponibles en la BD, se habrá de consultar en la SWAPI (https://swapi.dev/) sobre el endpoint adecuado.
+> En caso de que los datos requeridos no se encuentren disponibles en la BD, se habrá de consultar en la SWAPI (https://swapi.py4e.com/) sobre el endpoint adecuado.
 >
 > > _Funcionalidad extra:_ 
 > > _Se debe detectar si se está tratando de calcular el peso de un personaje en su planeta natal y arrojar un error._
