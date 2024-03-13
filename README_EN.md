@@ -33,7 +33,7 @@ The present code deploys a node.js/express server on which the following endpoin
 > - homeworldName: Name of the character's home planet corresponding to the given ID.
 > - homeworldId: Identifier of the character's home planet corresponding to the given ID.
 >
-> If these data are not available in the DB, consult the SWAPI (https://swapi.dev/) on the appropriate endpoint.
+> If these data are not available in the DB, consult the SWAPI (https://swapi.py4e.com/) on the appropriate endpoint.
 
 #### /hfswapi/getPlanet/:id
 
@@ -41,7 +41,7 @@ The present code deploys a node.js/express server on which the following endpoin
 > - name: Name of the planet corresponding to the given ID.
 > - gravity: Gravity factor of the planet corresponding to the given ID compared to the standard considered.
 >
-> If these data are not available in the DB, consult the SWAPI (https://swapi.dev/) on the appropriate endpoint.
+> If these data are not available in the DB, consult the SWAPI (https://swapi.py4e.com/) on the appropriate endpoint.
 
 #### /hfswapi/getWeightOnPlanetRandom
 
@@ -49,7 +49,7 @@ The present code deploys a node.js/express server on which the following endpoin
 > 
 > \( Weight_{Character} = Gravity_{Planet} \times Mass_{Character} \)
 > 
-> If the required data are not available in the DB, consult the SWAPI (https://swapi.dev/) on the appropriate endpoint.
+> If the required data are not available in the DB, consult the SWAPI (https://swapi.py4e.com/) on the appropriate endpoint.
 >
 > > _Extra functionality:_ 
 > > _Detect if the weight of a character on their home planet is being calculated and throw an error._

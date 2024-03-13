@@ -10,7 +10,7 @@ const _isWookieeFormat = (req) => {
 const applySwapiEndpoints = (server, app) => {
 
     server.get('/hfswapi/test', async (req, res) => {
-        const data = await app.swapiFunctions.genericRequest('https://swapi.dev/api/', 'GET', null, true);
+        const data = await app.swapiFunctions.genericRequest('https://swapi.py4e.com/api/', 'GET', null, true);
         res.send(data);
     });
 
